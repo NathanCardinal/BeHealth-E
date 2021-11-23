@@ -1,0 +1,214 @@
+<h1 class="head">FAQ</h1>
+<div class="d-flex flex-column align-items-center text-center p-3 py-5">
+    <img class="LogoBeHealth-e" 
+    width="180px" 
+    src="LogoBeHealth-e.png"font-weight-bold>
+</div>
+    <div class="FAQ">
+        <p class="title">Comment faire pour m'inscrire ?</p>
+        <span class="show">+</span>
+    </div>
+    <div class="info">
+        <p>Allez dans "acheter le produit" pour vous inscrire.
+        </p>
+    </div>
+    <div class="FAQ">
+        <p class="title">Comment modifier mon profil ?</p>
+        <span class="show">+</span>
+    </div>
+    <div class="info">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam voluptatum consectetur repudiandae nisi, sint
+            nesciunt quis tenetur ut maxime id! Dicta sint, sit incidunt facere libero fuga assumenda perferendis unde.
+        </p>
+    </div>
+    <div class="FAQ">
+        <p class="title">Comment me déconnecter ?</p>
+        <span class="show">+</span>
+    </div>
+    <div class="info">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam voluptatum consectetur repudiandae nisi, sint
+            nesciunt quis tenetur ut maxime id! Dicta sint, sit incidunt facere libero fuga assumenda perferendis unde.
+        </p>
+    </div>
+    <div class="FAQ">
+        <p class="title">Comment faire pour nous contacter ?</p>
+        <span class="show">+</span>
+    </div>
+    <div class="info">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam voluptatum consectetur repudiandae nisi, sint
+            nesciunt quis tenetur ut maxime id! Dicta sint, sit incidunt facere libero fuga assumenda perferendis
+            unde.
+        </p>
+    </div>
+    <div class="page_contact"><br><br>
+        <p> Vous ne trouvez pas la réponse à votre question ?</p>
+    </div>
+    <div class="button">
+        <ul>
+            <li><a href="CONTACTEZ-NOUS.html" rel="stylesheet">Contactez-nous</a>
+            </li>
+        </ul>    
+    </div>
+    <style>
+        *{
+    box-sizing: border-box;
+    font-family: Verdana, sans-serif;
+    user-select: none;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+}
+.head{
+    color: #8B00FF;
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, .15);
+}
+
+.FAQ{
+    height: 50px;
+    width: 800px;
+    margin-top: 20px;
+    background-color: #8B00FF;
+    color: #fff;
+    border-radius:10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 14px;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .15);
+
+}
+
+.title{
+    font-size: large;
+}
+
+.show{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    cursor: pointer;
+    color: white;
+    width: 40px;
+    height: 40px;
+
+}
+
+.show:hover {
+    color: #0dda69;
+}
+
+.info{
+    height: 0;
+    width: 800px;
+    background-color: transparent;
+    color: #000;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    position: relative;
+    overflow: hidden;
+    border: 0;
+    transition: height .4s;
+}
+
+.info.reveal{
+    min-height: 70px;
+    border: 1px solid #8B00FF;
+    border-radius: 0 0 10px 10px;
+    transition: height .4s;
+}
+.FAQ.radius{
+border-radius:10px 10px  0 0 ;
+}
+
+@media screen and (max-width: 500px){
+    .FAQ, .info{
+        width: 400px;
+    }
+}
+@media screen and (max-width: 400px){
+    .FAQ, .info{
+        width: 350px;
+    }
+}
+@media screen and (max-width: 350px){
+    .FAQ, .info{
+        width: 300px;
+    }
+}
+@media screen and (max-width: 250px){
+    .FAQ, .info{
+        width: 200px;
+    }
+}
+
+ul {
+    list-style-type: none;
+}
+
+.page_contact{
+    align-self: auto;
+}
+
+/* a modifiiiiiiiiiiiiiiiiieeeeeeerrrrr */
+a {
+    margin-top: 20px;
+    background-color: #8B00FF;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .15);
+    border-radius: 40px;
+    color: white;
+    padding: 4px 14px;
+    position: relative;
+    text-decoration: none;
+}
+
+a:hover {
+  background-color: #061efa;
+  cursor: pointer;
+}
+
+a:active {
+  box-shadow: none;
+  top: 1px; /* Button Animation */
+}
+
+/* Non-Demo Styles */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* a modifiiiiiiiiiiiiiiiiieeeeeeerrrrr */
+
+    </style>
+    <script type="text/javascript">
+        var shows = document.querySelectorAll(".show");
+        var infos = document.querySelectorAll(".info");
+        var FAQ = document.querySelectorAll(".FAQ");
+
+        for (let i = 0; i < shows.length; i++) {
+            shows[i].onclick = function() {
+                for (let j = 0; j < shows.length; j++) {
+                    if (shows[j] != this) {
+                    infos[j].classList.remove("reveal");
+                    shows[j].innerHTML = "+";
+                    FAQ[j].classList.remove("radius");
+                }
+            }
+            FAQ[i].classList.toggle("radius");
+            infos[i].classList.toggle("reveal");
+            if (infos[i].className.includes("reveal")) shows[i].innerHTML = "-";
+            else shows[i].innerHTML = "+";
+        };
+    }
+    </script>
