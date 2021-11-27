@@ -1,0 +1,29 @@
+/*CSS pour page d'accueil*/
+body {
+    margin: auto;
+    padding: auto;
+}
+
+header, footer {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 4px solid;
+    border-color: blueviolet;
+
+    margin: 10px;
+}
+
+.divBody {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 4px solid;
+    border-color: red;
+
+    margin: 10px;
+}
