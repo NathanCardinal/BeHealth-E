@@ -1,0 +1,150 @@
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body{
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.logo {
+	width: 200px;
+	height: 100px;
+	border-radius: 50%;
+	margin: 0 auto;
+  margin-top: 50px;
+}
+
+.logo img{
+  max-width:100%;	
+}
+
+.sidenav{
+  padding:5px;
+  background-color:#59466e ;
+  left: -270px;
+  width: 260px;
+  height: 100vh;
+  text-align: center;
+  padding-top: 30px;
+  position: fixed;
+  transition:  all .5s ease;
+}
+
+.sidenav a{
+  display: block;
+  padding: 20px 0;
+  color: #fff;
+  font-size: 15px;
+}
+
+.sidenav a:hover{
+  color: #fff;
+  background-color: #A789C4;
+  font-weight: bold;
+  border-left: 6px solid #3D2D4C;
+  border-right: 6px solid #3D2D4C;
+}
+
+.sidenav .fa{
+  display: inline-block;
+}
+
+.single-nav {
+	border-bottom: 2px solid #4F3D4F;
+}
+
+#last {
+  border-bottom: none;
+}
+
+
+#icon{
+  display: none;
+}
+
+label #openbtn, label #closebtn, label #logoutbtn{
+  position: fixed;
+  cursor: pointer;
+}
+
+label #openbtn{
+  top: 20px;
+  left: 50px;
+  font-size: 40px;
+  background-color: #59466E;
+  padding: 10px;
+  color:#fff;
+}
+
+label #closebtn{
+z-index: 1111;
+top: 20px;
+left: -212px;
+font-size: 30px;
+}
+
+label #logoutbtn{
+  z-index: 667;
+  bottom: 20px;
+  left: 50px;
+  font-size: 40px;
+  background-color: #54435F;
+  padding: 10px;
+  opacity: 0%;
+  border-radius:10%;
+  width: 40px;
+}
+
+#icon:checked ~ .sidenav{
+  left:0;
+}
+
+#icon:checked ~ label #closebtn {
+	left: 212px;
+	color: #fff;
+}
+
+#icon:checked ~ label #openbtn{
+  left:170px;
+  opacity: 0;
+  transition:  all .5s ease
+}
+
+#icon:checked ~ .content{
+  margin-left: 250px;
+}
+
+#icon:checked ~ label #logoutbtn{
+  opacity: 100%;
+  transition:  all .75s ease
+}
+
+.content {
+	background: url(https://images.pexels.com/photos/3601094/pexels-photo-3601094.jpeg?cs=srgb&dl=pexels-daniel-reche-3601094.jpg&fm=jpg);
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
+	padding: 300px 0;
+	transition: all .5s;
+	font-size: 50px;
+	text-transform: uppercase;
+}
+
+#drop-right{
+top:32vh;
+display: none;
+position: absolute;
+width: 180px;
+left: 270px;
+background-color: #59466E;
+z-index: 20;
+box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2)
+}
+
+#add-drop:hover #drop-right{
+  display: block;
+}
