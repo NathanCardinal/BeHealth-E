@@ -13,23 +13,69 @@
     <div class="mainContainer">
         <div class="sensorsContainer">
             <div class="sensorsColumn">
-                <div class="sensorsItem">
+                <div class="sensorsItem" name="Temperature">
                     <div class="valueTop">
-                        <img class="sensorsIcon">
+                        <div class="sensorsIcon">
+                            <img src="Img/thermometer.png">
+                        </div>
                         <div class="sensorsValue">20,3</div>
                         <div class="sensorsUnit">°C</div>
                     </div>
                     <div class="valueBottom">Température</div>
                 </div>
-                <div class="sensorsItem">Capteur 2</div>
+
+                <div class="sensorsItem" name="Particules">
+                    <div class="valueTop">
+                        <div class="sensorsIcon">
+                            <img src="Img/particle.png">
+                        </div>
+                        <div class="sensorsValue">443,0</div>
+                        <div class="sensorsUnit">PPM</div>
+                    </div>
+                    <div class="valueBottom">Particules</div>
+                </div>
             </div>
+
             <div class="sensorsColumn">
-                <div class="sensorsItem">Capteur 3</div>
-                <div class="sensorsItem">Capteur 4</div>
+                <div class="sensorsItem" name="CO2">
+                    <div class="valueTop">
+                        <div class="sensorsIcon">
+                            <img src="Img/particle.png">
+                        </div>
+                        <div class="sensorsValue">443,0</div>
+                        <div class="sensorsUnit">PPM</div>
+                    </div>
+                    <div class="valueBottom">Concentration de CO<sub>2</sub></div>
+                </div>
+
+                <div class="sensorsItem" name="Cardiaque">
+                    <div class="valueTop">
+                        <div class="sensorsIcon">
+                            <img src="Img/heart-beat.png">
+                        </div>
+                        <div class="sensorsValue">63,5</div>
+                        <div class="sensorsUnit">BPM</div>
+                    </div>
+                    <div class="valueBottom">Rythme cardiaque</div>
+                </div>
+
             </div>
         </div>
         <div class="mapContainer">
-            <div class="mapItem">Map</div>
+            <div id="googleMap" class="mapItem">Map</div>
+
+            <script>
+                function myMap() {
+                var mapProp= {
+                  center:new google.maps.LatLng(51.508742,-0.120850),
+                  zoom:5,
+                };
+                var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+                }
+            </script>    
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSmZTIaeR4t73lCnKrZ5AMh1-CVO3OTOY&callback=myMap"></script>
+
+            <div class="recommended">Texte</div>
         </div>
     </div>    
 </body>
