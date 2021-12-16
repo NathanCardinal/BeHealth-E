@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,74 +10,75 @@
 </head>
 
 <body>
-    <div class="mainContainer">
-        <div class="sensorsContainer">
-            <div class="sensorsColumn">
-                <div class="sensorsItem" name="Temperature">
-                    <div class="valueTop">
-                        <div class="sensorsIcon">
-                            <img src="Img/thermometer.png">
+    <div class="globalDashboard">
+        <header>
+            <h1>Capteurs</h1>
+            <img class="logoFull" src="Img/LogoBeHealth-e_Full.png">
+            <img class="logoMin" src="Img/Logo_BeHealth-e.png">
+        </header>
+        <div class="mainContainer">
+            <div class="sensorsContainer">
+                <div class="sensorsColumn">
+                    <a href="../Sensors/temperature.html">
+                        <div class="sensorsItem" name="Temperature">
+                            <div class="valueTop">
+                                <div class="sensorsIcon">
+                                    <img src="Img/thermometer.png">
+                                </div>
+                                <div class="sensorsValue">20,3</div>
+                                <div class="sensorsUnit">°C</div>
+                            </div>
+                            <div class="valueBottom">Température</div>
                         </div>
-                        <div class="sensorsValue">20,3</div>
-                        <div class="sensorsUnit">°C</div>
-                    </div>
-                    <div class="valueBottom">Température</div>
+                    </a>
+
+                    <a href="../Sensors/particules.html">
+                        <div class="sensorsItem" name="Particules">
+                            <div class="valueTop">
+                                <div class="sensorsIcon">
+                                    <img src="Img/particle.png">
+                                </div>
+                                <div class="sensorsValue">443,0</div>
+                                <div class="sensorsUnit">PPM</div>
+                            </div>
+                            <div class="valueBottom">Particules</div>
+                        </div>
+                    </a>
                 </div>
 
-                <div class="sensorsItem" name="Particules">
-                    <div class="valueTop">
-                        <div class="sensorsIcon">
-                            <img src="Img/particle.png">
+                <div class="sensorsColumn">
+                    <div class="sensorsItem" name="CO2">
+                        <div class="valueTop">
+                            <div class="sensorsIcon">
+                                <img src="Img/particle.png">
+                            </div>
+                            <div class="sensorsValue">443,0</div>
+                            <div class="sensorsUnit">PPM</div>
                         </div>
-                        <div class="sensorsValue">443,0</div>
-                        <div class="sensorsUnit">PPM</div>
+                        <div class="valueBottom">Concentration de CO<sub>2</sub></div>
                     </div>
-                    <div class="valueBottom">Particules</div>
+
+                    <div class="sensorsItem" name="Cardiaque">
+                        <div class="valueTop">
+                            <div class="sensorsIcon">
+                                <img src="Img/heart-beat.png">
+                            </div>
+                            <div class="sensorsValue">63,5</div>
+                            <div class="sensorsUnit">BPM</div>
+                        </div>
+                        <div class="valueBottom">Rythme cardiaque</div>
+                    </div>
+
                 </div>
             </div>
+            <div class="mapContainer">
+                <iframe class="mapItem" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d876.2211249144787!2d2.3283344338616474!3d48.84492377930919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671ce3fa0c01f%3A0x9bd1ac22c478d56e!2sISEP!5e0!3m2!1sfr!2sfr!4v1639568610760!5m2!1sfr!2sfr" 
+                allowfullscreen="" loading="lazy"></iframe>
 
-            <div class="sensorsColumn">
-                <div class="sensorsItem" name="CO2">
-                    <div class="valueTop">
-                        <div class="sensorsIcon">
-                            <img src="Img/particle.png">
-                        </div>
-                        <div class="sensorsValue">443,0</div>
-                        <div class="sensorsUnit">PPM</div>
-                    </div>
-                    <div class="valueBottom">Concentration de CO<sub>2</sub></div>
-                </div>
-
-                <div class="sensorsItem" name="Cardiaque">
-                    <div class="valueTop">
-                        <div class="sensorsIcon">
-                            <img src="Img/heart-beat.png">
-                        </div>
-                        <div class="sensorsValue">63,5</div>
-                        <div class="sensorsUnit">BPM</div>
-                    </div>
-                    <div class="valueBottom">Rythme cardiaque</div>
-                </div>
-
+                <div class="recommended">Texte</div>
             </div>
-        </div>
-        <div class="mapContainer">
-            <div id="googleMap" class="mapItem">Map</div>
-
-            <script>
-                function myMap() {
-                var mapProp= {
-                  center:new google.maps.LatLng(51.508742,-0.120850),
-                  zoom:5,
-                };
-                var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-                }
-            </script>    
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSmZTIaeR4t73lCnKrZ5AMh1-CVO3OTOY&callback=myMap"></script>
-
-            <div class="recommended">Texte</div>
-        </div>
-    </div>    
+        </div> 
+    </div>
 </body>
 
 </html>
