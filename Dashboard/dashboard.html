@@ -1,0 +1,148 @@
+<doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>BeHealth-e</title>
+  <link href="dashboardstyle.css" rel="stylesheet">
+</head>
+	<body>
+		<input type="checkbox" id="icon" />					<!-- Ouverture de la sidebar par un principe de bouton Open/Close checkbox -->		
+	    <label for="icon"  class="iconbtn">					
+	      <img src="close.png" ="" id="closebtn"></img>			<!-- Bouton avec une croix -->
+	      <img src="list.png" id="openbtn"></img>				<!-- Bouton avec 3 lignes  -->	
+	    </label>
+	    <label>
+	    		<a href="logout.html"><img src="logout.png" id="logoutbtn"></img></a>
+	    </label>
+	    <div class="sidenav">									  <!-- Début de la barre de navigation de type sidebar -->
+	      <div class="logo">
+	        <img src="logobe.png">			<!-- Logo de l'entreprise  -->
+	      </div>
+	      <ul class="mainNav">										<!-- Navigation principale -->
+	        <li class="single-nav">
+	          <a href="dashboard.html">
+	            <img src="chevron.png"></img>				<!-- Block de navigation classique / arborescence classique d'un menu (19 à 75) -->
+	            <span>Accueil</span>
+	          </a>
+	        </li>
+	        <li class="single-nav">
+	          <a href="profil.html">
+	            <img src="chevron.png"></img>
+	            <span>Profil</span>
+	          </a>
+	        </li>
+	        <li class="single-nav" id="add-drop">
+	           	<a><img src="chevron.png"></img>
+	           	   <span>Capteurs</span>	
+	           	</a>
+	           	<div id="drop-right">
+	           		<a href="#">Capteur BPM</a>
+	           		<a href="#">Capteur CO2</a>	           		
+	           		<a href="#">Capteur Pollution</a>
+	           		<a href="#">Capteur Température</a>
+	           	</div>	
+	        </li>
+	        <li class="single-nav">
+	          <a href="statistiques.html">
+	            <img src="chevron.png"></img>
+	            <span>Statistiques</span>
+	          </a>
+	        </li>
+	        <li class="single-nav">
+	          <a href="FAQ.html">
+	            <img src="chevron.png"></img>
+	            <span>FAQ</span>
+	          </a>
+	        </li>
+	        <li class="single-nav">
+	          <a href="contact.html">
+	            <img src="chevron.png"></img>
+	            <span>Contact</span>
+	          </a>
+	        </li>
+	        <li class="single-nav">
+	          <a href="#">
+	            <img src="chevron.png"></img>
+	            <span>CGV</span>
+	          </a>
+	        </li>
+	        <li id="last">
+	          <a href="#">
+	            <img src="chevron.png"></img>
+	            <span>Politique de confidentialité</span>
+	          </a>
+	        </li>
+	      </ul>
+
+	    </div>
+
+	    <div class="globalDashboard">
+	        <header>
+	            <h1 id="zaza">Capteurs</h1>
+	            <img class="logoMin" src="Img/Logo_BeHealth-e.png">
+	        </header>
+	        <div class="mainContainer">
+	            <div class="sensorsContainer">
+	                <div class="sensorsColumn">
+	                    <a href="../Sensors/temperature.html">
+	                        <div class="sensorsItem" name="Temperature">
+	                            <div class="valueTop">
+	                                <div class="sensorsIcon">
+	                                    <img src="Img/thermometer.png">
+	                                </div>
+	                                <div class="sensorsValue">20,3</div>
+	                                <div class="sensorsUnit">°C</div>
+	                            </div>
+	                            <div class="valueBottom">Température</div>
+	                        </div>
+	                    </a>
+
+	                    <a href="../Sensors/particules.html">
+	                        <div class="sensorsItem" name="Particules">
+	                            <div class="valueTop">
+	                                <div class="sensorsIcon">
+	                                    <img src="Img/particle.png">
+	                                </div>
+	                                <div class="sensorsValue">443,0</div>
+	                                <div class="sensorsUnit">PPM</div>
+	                            </div>
+	                            <div class="valueBottom">Particules</div>
+	                        </div>
+	                    </a>
+	                </div>
+
+	                <div class="sensorsColumn">
+	                    <div class="sensorsItem" name="CO2">
+	                        <div class="valueTop">
+	                            <div class="sensorsIcon">
+	                                <img src="Img/particle.png">
+	                            </div>
+	                            <div class="sensorsValue">443,0</div>
+	                            <div class="sensorsUnit">PPM</div>
+	                        </div>
+	                        <div class="valueBottom">Concentration de CO<sub>2</sub></div>
+	                    </div>
+
+	                    <div class="sensorsItem" name="Cardiaque">
+	                        <div class="valueTop">
+	                            <div class="sensorsIcon">
+	                                <img src="Img/heart-beat.png">
+	                            </div>
+	                            <div class="sensorsValue">63,5</div>
+	                            <div class="sensorsUnit">BPM</div>
+	                        </div>
+	                        <div class="valueBottom">Rythme cardiaque</div>
+	                    </div>
+
+	                </div>
+	            </div>
+	            <div class="mapContainer">
+	                <iframe class="mapItem" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d876.2211249144787!2d2.3283344338616474!3d48.84492377930919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671ce3fa0c01f%3A0x9bd1ac22c478d56e!2sISEP!5e0!3m2!1sfr!2sfr!4v1639568610760!5m2!1sfr!2sfr" 
+	                allowfullscreen="" loading="lazy"></iframe>
+
+	                <div class="recommended">Texte</div>
+	            </div>
+	        </div> 
+	    </div>  
+	</body>
+</html>
