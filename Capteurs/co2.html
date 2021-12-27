@@ -1,0 +1,96 @@
+<doctype html>
+  <html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>BeHealth-e</title>
+    <link href="capteurstyle.css" rel="stylesheet">
+  </head>
+    <body>
+      <input type="checkbox" id="icon" />					<!-- Ouverture de la sidebar par un principe de bouton Open/Close checkbox -->		
+        <label for="icon"  class="iconbtn">					
+          <img src="close.png" ="" id="closebtn"></img>			<!-- Bouton avec une croix -->
+          <img src="list.png" id="openbtn"></img>				<!-- Bouton avec 3 lignes  -->	
+        </label>
+        <label>
+            <a href="logout.html"><img src="logout.png" id="logoutbtn"></img></a>
+        </label>
+        <div class="sidenav">									  <!-- Début de la barre de navigation de type sidebar -->
+          <div class="logo">
+            <img src="logobe.png">			<!-- Logo de l'entreprise  -->
+          </div>
+          <ul class="mainNav">										<!-- Navigation principale -->
+            <li class="single-nav">
+              <a href="../Dashboard/dashboard.html">
+                <img src="chevron.png"></img>				<!-- Block de navigation classique / arborescence classique d'un menu (19 à 75) -->
+                <span>Accueil</span>
+              </a>
+            </li>
+            <li class="single-nav">
+              <a href="../Profil/profil.html">
+                <img src="chevron.png"></img>
+                <span>Profil</span>
+              </a>
+            </li>
+            <li class="single-nav" id="add-drop">
+                 <a><img src="chevron.png"></img>
+                    <span>Capteurs</span>	
+                 </a>
+                 <div id="drop-right">
+            <a href="./cardiaque.html">Capteur BPM</a>
+            <a href="./co2.html">Capteur CO2</a>	           		
+            <a href="./particules.html">Capteur Pollution</a>
+            <a href="./temperature.html">Capteur Température</a>
+                 </div>	
+            </li>
+            <li class="single-nav">
+              <a href="#">
+                <img src="chevron.png"></img>
+                <span>Statistiques</span>
+              </a>
+            </li>
+            <li class="single-nav">
+              <a href="../FAQ/Faq.html">
+                <img src="chevron.png"></img>
+                <span>FAQ</span>
+              </a>
+            </li>
+            <li class="single-nav">
+              <a href="../Contact/contact.html">
+                <img src="chevron.png"></img>
+                <span>Contact</span>
+              </a>
+            </li>
+            <li class="single-nav">
+              <a href="#">
+                <img src="chevron.png"></img>
+                <span>CGV</span>
+              </a>
+            </li>
+            <li id="last">
+              <a href="#">
+                <img src="chevron.png"></img>
+                <span>Politique de confidentialité</span>
+              </a>
+            </li>
+          </ul>
+  
+        </div>
+  
+        <div class="flex-default-container">
+          <div class="screen">
+          <h1 class="titreCapteur">Température dans votre région</h1>
+          
+          <div class="imgCapteur">
+            <img src="./meteo.png" />
+          </div>
+  
+          <h3 class="titreGraphe">Températures ces dernières semaines</h3>
+          <div class="graphe">
+            <img src="./climat-IDF-1.png">
+          </div>
+        </div>
+         </div>
+  
+    </body>
+  </html>
+  
