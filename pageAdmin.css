@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body{
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+/*#barre_recherche {width: 85%;
+    height: 30px;      
+    background-color: rgb(160, 160, 160);
+    border-radius: 8px; 
+    margin-top: 60px;
+    margin-left: 10%; 
+    position : absolute;
+    padding: 10px 0px 0px 20px;
+}
+
+#infoPlace{width: 25%;
+    height: 350px;
+    background-color: rgb(160, 160, 160);
+    border-radius: 8px;
+    position: absolute;
+    margin-top: 14%;
+    margin-left: 11%;
+}
+
+#infoUser{width: 25%;
+    height: 350px;
+    background-color: rgb(160, 160, 160);
+    border-radius: 8px;
+    position: absolute;
+    margin-top: 14%;
+    margin-left: 40%;
+}
+
+#infoManager{width: 25%;
+    height: 350px;
+    background-color: rgb(160, 160, 160);
+    border-radius: 8px;
+    position: absolute;
+    margin-top: 14%;
+    margin-left: 69%;
+}
+
+#Place{width: 25%;
+    height: 30px;
+    background-color: rgb(160, 160, 160);
+    border-radius: 8px;
+    position: absolute;
+    text-align: center;
+    margin-top: 10%;
+    margin-left: 11%;
+    padding-top: 5px;
+}
+
+#User{width: 25%;
+    height: 30px;
+    background-color:rgb(160, 160, 160);
+    border-radius: 8px;
+    position: absolute;
+    text-align: center;
+    margin-top: 10%;
+    margin-left: 40%;
+    padding-top: 5px
+}
+
+#Manager{width: 25%;
+    height: 30px;
+    background-color: rgb(160, 160, 160);
+    border-radius: 8px;
+    position: absolute;
+    text-align: center;
+    margin-top: 10%;
+    margin-left: 69%;
+    padding-top: 5px
+}*/
+
+.container{
+    max-width: 1180px;
+    margin-top: 60px;
+    margin-left: auto;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+ul{                     /*ul ds html -> les enlever d'1 coup*/
+    list-style: none;
+}
+
+footer { 
+    top: 70%;     /*à changer en fonction de la hauteur à laquelle on le voudra sur la page*/
+    bottom:0;
+    left: 0;
+    width:100%;
+    height: 330px;   
+    background: rgb(104, 52, 104);
+    position: absolute;
+}
+
+.footer-col{
+    width: 25%;
+    padding: 0 30px;    
+}
+
+.footer-col h4{
+    font-size: 20px;
+    color: seashell;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    margin-top: -30px  ;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before{   /*Mettre une barre uniquement en dessous des titres*/
+    content: '';
+    position: absolute;
+    background-color:seashell;
+    bottom: -10px;
+    left: 0;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-col p{
+    font-size: 11.5px;
+    color: seashell;
+    text-align: justify;
+    
+}
+
+.footer-col li {
+    margin-top: 15px;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+    list-style-type: none;
+    position: relative;
+}
+
+.footer-col ul li a{
+    font-size: 15px;
+    color: seashell;    
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    transition: all 0.5s ease;
+}
+
+.footer-col ul li span{
+    margin-left: 0;
+    margin-right: 10px;
+    margin-left: -20px;
+}
+
+.footer-col ul li a:hover{
+    color: seashell;
+    padding-left: 10px; 
+}
+
+.footer-col .social-links a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(225, 225, 225, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: seashell;
+    transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover{
+    color : rgb(104, 52, 104);  /*couleur background*/
+    background-color: seashell; /*couleur du logo sans hover*/
+}
+.footer-col img{
+    width: 150px;
+    height: auto;
+    z-index: 1;
+    margin-top: 135px;
+    margin-left: 50px;
+    position: absolute;
+}
+
+.footer-bottom {
+    width: 100%;
+    height: 65px;
+    background-color: rgba(82, 39, 82);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding-top: 27px;
+    text-align: center;
+    font-size: 10px;
+}
+
+.footer-bottom span{
+    color: rgba(255, 245, 238, 0.829);
+    position: static;
+}
+
+
+
+
+
