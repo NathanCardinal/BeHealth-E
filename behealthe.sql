@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 27 déc. 2021 à 15:40
+-- Généré le : lun. 10 jan. 2022 à 13:59
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.4.9
 
@@ -29,10 +29,11 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `capteur`;
 CREATE TABLE IF NOT EXISTS `capteur` (
-  `idCapteur` int(11) NOT NULL,
+  `id_capteur` int(11) NOT NULL AUTO_INCREMENT,
   `idUser` int(11) NOT NULL,
   `nom` text NOT NULL,
-  `données` int(11) NOT NULL
+  `données` int(11) NOT NULL,
+  PRIMARY KEY (`id_capteur`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -43,9 +44,24 @@ CREATE TABLE IF NOT EXISTS `capteur` (
 
 DROP TABLE IF EXISTS `dataext`;
 CREATE TABLE IF NOT EXISTS `dataext` (
-  `idData` int(11) NOT NULL,
+  `id_data` int(11) NOT NULL AUTO_INCREMENT,
   `data` json NOT NULL,
-  `source` text NOT NULL
+  `source` text NOT NULL,
+  PRIMARY KEY (`id_data`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `faq`
+--
+
+DROP TABLE IF EXISTS `faq`;
+CREATE TABLE IF NOT EXISTS `faq` (
+  `id_question` int(11) NOT NULL AUTO_INCREMENT,
+  `question` text NOT NULL,
+  `answer` text NOT NULL,
+  PRIMARY KEY (`id_question`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -56,13 +72,20 @@ CREATE TABLE IF NOT EXISTS `dataext` (
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
-  `idUser` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL AUTO_INCREMENT,
+  `is_admin` tinyint(1) NOT NULL DEFAULT '0',
   `nom` text NOT NULL,
   `prenom` text NOT NULL,
   `dateNaissance` date NOT NULL,
   `email` text NOT NULL,
   `password` text NOT NULL,
-  `remarque` longtext NOT NULL
+  `remarque` longtext NOT NULL,
+  `adresse` varchar(255) DEFAULT NULL,
+  `ville` varchar(128) DEFAULT NULL,
+  `gender` varchar(128) DEFAULT NULL,
+  `pays` varchar(128) DEFAULT NULL,
+  `postalCode` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_user`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 
