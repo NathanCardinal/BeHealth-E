@@ -39,6 +39,9 @@ if (isset($_POST['submit'])) {
             die('Could not connect to the database.');
         }
         else {
+
+            // Insertion des données en base
+
             $Select = "SELECT email FROM register WHERE email = ? LIMIT 1";
             $Insert = "INSERT INTO register(prenom, nom, mdp, email, adresse, ville, pays, remarque, gender) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($Select);
@@ -51,7 +54,7 @@ if (isset($_POST['submit'])) {
             if ($rnum == 0) {
                 $stmt->close();
                 $stmt = $conn->prepare($Insert);
-                $stmt->bind_param("sssssssss",$prenom, $nom, $mdp, $email, $adresse, $ville, $pays, $remarque, $gender);
+                $stmt->bind_param("sssssssss", $prenom, $nom, $mdp, $email, $adresse, $ville, $pays, $remarque, $gender);
                 if ($stmt->execute()) {
                     echo "New record inserted sucessfully.";
                 }
