@@ -1,4 +1,11 @@
+<!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../Inscription/Inscription.css" />
+        <script src="../Profil/Profil.js"></script>
+        <title>Inscription</title>
+    </head>
 <div class="flex-default-container">
     <div class="screen">
         <form action="inscriptionController.php" method="post">
@@ -253,8 +260,4 @@
     </div>
 </div>
 </div>
-
-<script src="../Profil/Profil.js"></script>
-<link rel="stylesheet" type="text/css" href="../Inscription/Inscription.css" />
-
 </html>
