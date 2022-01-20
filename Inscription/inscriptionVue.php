@@ -1,7 +1,7 @@
 <html>
 <div class="flex-default-container">
     <div class="screen">
-        <form action="Inscription.php" method="post">
+        <form action="inscriptionController.php" method="post">
         <div>
             <img class="picto" width="80px" src="https://cdn-icons-png.flaticon.com/512/709/709722.png"
                 font-weight-bold>
@@ -16,7 +16,7 @@
                 <label class="labels">Nom : </label>
                 <input type="text" class="form-control" placeholder="Votre nom" id="nom" name="nom">
                 <label class="labels">Date de naissance : </label>
-                <div class="date">
+                <div class="date" name="date">
                     <select name="day">
                         <option selected hidden value="">Jour</option>
                         <option value="1">1</option>
@@ -53,18 +53,18 @@
                     </select>
                     <select name="month">
                         <option selected hidden value="">Mois</option>
-                        <option value="january">Janvier</option>
-                        <option value="february">Février</option>
-                        <option value="march">Mars</option>
-                        <option value="april">Avril</option>
-                        <option value="may">Mai</option>
-                        <option value="june">Juin</option>
-                        <option value="july">Juillet</option>
-                        <option value="august">Août</option>
-                        <option value="september">Septembre</option>
-                        <option value="october">Octobre</option>
-                        <option value="november">Novembre</option>
-                        <option value="december">Décembre</option>
+                        <option value="01">Janvier</option>
+                        <option value="02">Février</option>
+                        <option value="03">Mars</option>
+                        <option value="04">Avril</option>
+                        <option value="05">Mai</option>
+                        <option value="06">Juin</option>
+                        <option value="07">Juillet</option>
+                        <option value="08">Août</option>
+                        <option value="09">Septembre</option>
+                        <option value="10">Octobre</option>
+                        <option value="11">Novembre</option>
+                        <option value="12">Décembre</option>
                     </select>
                     <select name="year">
                         <option selected hidden value="">Année</option>
