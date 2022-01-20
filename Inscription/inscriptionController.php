@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
             'postalCode' => $postalCode,
             'gender' => $gender
         ]);
-
+        
     }
     else {
         echo "All field are required.";
