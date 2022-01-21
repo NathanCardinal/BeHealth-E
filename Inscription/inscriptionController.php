@@ -52,6 +52,8 @@ if (isset($_POST['submit'])) {
             'postalCode' => $postalCode,
             'gender' => $gender
         ]);
+
+        header('Location: ../Connexion/connexionVue.php');
         
     }
     else {
