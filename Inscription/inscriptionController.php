@@ -17,14 +17,14 @@ if (isset($_POST['submit'])) {
         $_POST['day'],
         $_POST['month'],
         $_POST['year'],
-        //$_POST['gender']
+        $_POST['gender']
     ];
 
     if (formVerify($fields))
     {
         $prenom = htmlentities($_POST['prenom']);
         $nom = htmlentities($_POST['nom']);
-        $mdp = htmlentities($_POST['password']);
+        $mdptemp = htmlentities($_POST['password']);
         $email = htmlentities($_POST['email']);
         $adresse = htmlentities($_POST['adresse']);
         $ville = htmlentities($_POST['ville']);
@@ -34,6 +34,7 @@ if (isset($_POST['submit'])) {
         $dateNaissance = $_POST['year'].'-'.$_POST['month'].'-'.$_POST['day'];
         $gender = htmlentities($_POST['gender']);
         
+        $mdp = password_hash($mdptemp, PASSWORD_BCRYPT);
         
         $db = DBConnect();
 
