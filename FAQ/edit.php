@@ -1,46 +1,35 @@
 <?php
-	include('connect.php');
-	include("FonctionHeader.php");
-	$question = $answer = '';
-	$errors = array('question' => '', 'answer' => '');
 
+// connexion a la  database
+$conn = mysqli_connect("mysql:host=localhost:8889;dbname=behealthe", "root", "root");
 
-if(isset($_POST['submit'])){
+// verif si faq existe
+$sql = "SELECT * FROM faqs WHERE id = ?";
+$statement = $conn->prepare($sql);
+$statement->execute([
+    $_REQUEST["id"]
+]);
+$faq = $statement->fetch();
 
-		// Verification question
-		if(empty($_POST['question'])){
-			$errors['question'] = 'question requise';
-		}
+if (!$faq)
+{
+    die("FAQ non trouvée");
+}
 
-		// Verification answer
-		if(empty($_POST['answer'])){
-			$errors['answer'] = 'answer requise ';
-		}
+// verif si la edit form est submit
+if (isset($_POST["submit"]))
+{
+    // update la faq dans la database
+    $sql = "UPDATE faqs SET question = ?, answer = ? WHERE id = ?";
+    $statement = $conn->$prepare($sql);
+    $statement->execute([
+        $_POST["question"];
+        $_POST["answer"];
+        $_POST["id"];
+    ]);
 
- 	
-
-		if(isset($_GET['id'])){
-			$id = mysqli_real_escape_string($conn, $_GET['id']);
-			$sql1 = "SELECT * FROM faq WHERE FAQ_ID = $id";
-			$result = mysqli_query($conn, $sql1);
-			$personne = mysqli_fetch_assoc($result);
-		}
-
-
-		if(array_filter($errors)){
- 		} else {
-			$question = mysqli_real_escape_string($conn, $_POST['question']);
-			$answer = mysqli_real_escape_string($conn, $_POST['answer']);
-
-
-			$sql = "UPDATE `faq` SET `question` = '$question', `answer` = '$answer' WHERE `faq`.`FAQ_ID` = $id";
-
-			if(mysqli_query($conn, $sql)){
-				header('Location: FAQGestion.php');
-			} else {
-				echo 'query error: '. mysqli_error($conn);
-			}
-		}
+    // repartir sur la page d'origine
+    header("Location: " . $_SERVER["HTTP_REFERER"]);
 }
 ?>
 
@@ -65,7 +54,7 @@ if(isset($_POST['submit'])){
  
                 <!-- question -->
                 <div class="flex-container">
-                    <label class="labels">Enter question</label>
+                    <label class="labels">Enter Question</label>
                     <input type="text" name="question" class="form-control" value="<?php echo $faq['question']; ?>"required />
                 </div>
  
@@ -83,3 +72,4 @@ if(isset($_POST['submit'])){
         </div>
     </div>
 
+<script>
