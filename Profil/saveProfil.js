@@ -2,13 +2,19 @@ type="text/javascript"
 
 function saveProfil() {
     let text;
+    var s = document.getElementById("save-button");
     if (confirm("Voulez-vous enregistrer votre profil ?") == true) {
       alert("Votre profil a été enregistré");
+      s.type = "submit";
     } 
-    // else {
-    //     confirm("You canceled!");
-    //   }
+    else {
+        alert("L'enregistrement a été annulé");
+            s.type = "button";
+    }
 }
+
+
+
 
 function checkPassword() {
   let password = document.getElementById ("password").value;
@@ -27,6 +33,9 @@ function checkPassword() {
       }
   }
 }
+
+
+
 
 function checkEmpty() {
     let prenom = document.getElementById ("prenom").value;
@@ -109,14 +118,14 @@ function checkEmpty() {
         document.getElementById("postalCode").style.borderColor = "#FF0000";
     }
 
-
-    (function genderCheck(){})
-
-
+    
     if(prenom.length == 0|| nom.length == 0|| adresse.length == 0|| ville.length == 0|| email.length == 0|| password.length == 0|| passwordAgain.length == 0|| pays.length == 0|| postalCode.length == 0){
         alert("Veuillez renseigner toutes les informations");
     }
 }
+
+
+
 
 
 function genderCheck() {      
@@ -134,9 +143,15 @@ function genderCheck() {
     else {
       // Otherwise, one or both were not chosen
       alert("Veuillez renseigner votre sexe");
-
     }     
 }
+
+
+
+
+
+
+
 
 function dateCheck() {
  var ddlDay = document.getElementById("dayCheck");
@@ -174,4 +189,21 @@ function dateCheck() {
         }
 
    }
+   else {
+    document.getElementById("dayCheck").style.borderColor = "#8B00FF"
+    document.getElementById("monthCheck").style.borderColor = "#8B00FF"
+    document.getElementById("yearCheck").style.borderColor = "#8B00FF"
+   }
+}
+
+
+
+function postalNumbers(objEvt) {
+    var charCode = (objEvt.which) ? objEvt.which : event.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    else {
+        return true;
+    }
 }

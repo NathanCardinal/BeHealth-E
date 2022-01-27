@@ -3,7 +3,7 @@ body {
     min-height: 130vh;
     padding: 0;
     margin: 0;
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Calibri', sans-serif;
 }
   
 .flex-default-container {
@@ -56,7 +56,7 @@ body {
   
 .add-button {
     color:white;
-    font-size: 15;
+    font-size: 15px;
     background-color: #8B00FF;
     box-shadow: 0 10px 20px rgba(0, 0, 0, .15);
     border-radius: 40px;
@@ -109,10 +109,10 @@ body {
 
 
 
-@import url('https://fonts.googleapis.com/css?family=Varela+Round');
 html, body {
     overflow-x: hidden;
     height: 100%;
+    font-family: 'Calibri', sans-serif;
 }
 
 
@@ -131,11 +131,11 @@ html, body {
 }
 
 #sidebarMenu {
-    height: 100%;
-    position: fixed;
+    height: 180%;
+    position: absolute;
     left: 0;
     width: 250px;
-    margin-top: 60px;
+    margin-top: 0px;
     margin-left: 0;
     transform: translateX(-250px);
     transition: transform 250ms ease-in-out;
@@ -256,6 +256,8 @@ input[type=checkbox] {
     display:flex;
     padding: 10px 10px 3px 10px;
     justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 55px;
 }
 
 .spinner {
@@ -295,15 +297,27 @@ input[type=checkbox] {
 
 @media screen and (min-width: 2000px){ 
     #sidebarMenu {
-        height: 100%;
-        position: fixed;
+        min-height: 100%;
+        position: absolute;
         left: 0;
         width: 350px;
-        margin-top: 60px;
+        margin-top: 0px;
         margin-left: 0;
         transform: translateX(-350px);
         transition: transform 250ms ease-in-out;
-        background: linear-gradient(180deg, #d146fc 0%, #8B00FF 80%);
+        background: rgb(117, 42, 192);
+    }
+
+    .logo_sidebar {
+        z-index: 5;
+        width: 70%;
+        text-align:center;
+        margin:auto;
+        display:flex;
+        padding: 10px 10px 3px 10px;
+        justify-content: center;
+        margin-bottom: 20px;
+        margin-top: 55px;
     }
 
     .sidebarMenuInner{

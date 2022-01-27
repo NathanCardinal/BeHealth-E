@@ -36,7 +36,8 @@ if(isset($_POST['name']) && isset($_POST['email'])){
     $mail->Body = ("De : $name $surname <br>    $email<br><br>Objet : $subject<br><br>Message :<br>$body");
     $envoyer= $mail->send(); 
 
-    header('Location: Contactez-Nous.html');
+    header('Location: Contact-Us_non_connecte.html');
+    
 
     if ($envoyer == true) {
         echo "Merci de nous avoir contacté ! Nous vous répondrons dans les plus briefs delais ! " . $mail;

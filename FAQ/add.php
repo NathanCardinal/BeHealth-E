@@ -1,48 +1,93 @@
 <?php
- 
-    // connexion database
-    $conn = mysqli_connect("mysql:host=localhost:8889;dbname=behealthe", "root", "root");
- 
-    // verif si form esst submit
-    if (isset($_POST["submit"]))
-    {
-        // creation de la table si n'existe pas
-        $sql = "CREATE TABLE IF NOT EXISTS faqs (
-            id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-            question TEXT NULL,
-            answer TEXT NULL,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-        )";
-        $statement = $conn->prepare($sql);
-        $statement->execute();
- 
-        // insertion dans la table de faq
-        $sql = "INSERT INTO faqs (question, answer) VALUES (?, ?)";
-        $statement = $conn->prepare($sql);
-        $statement->execute([
-            $_POST["question"],
-            $_POST["answer"]
-        ]);
-    }
- 
-    // recup toutes les faq en ordre (plus récent vers plus ancien)
-    $sql = "SELECT * FROM faqs ORDER BY id DESC";
-    $statement = $conn->prepare($sql);
-    $statement->execute();
-    $faqs = $statement->fetchAll();
+	include('connect.php');
+	include("FonctionHeader.php");
+
+	$question = $answer = '';
+	$errors = array('question' => '', 'answer' => '');
+
+	if(isset($_POST['submit'])){
+
+		// Verification question
+		if(empty($_POST['question'])){
+			$errors['question'] = 'question requise';
+		}
+
+		// Verification answer
+		if(empty($_POST['answer'])){
+			$errors['answer'] = 'answer requise ';
+		}
+
+
+		if(array_filter($errors)){
+			//echo 'errors dans le formulaire';
+
+ 		} else {
+	
+			$question = PDO::prepare($conn, $_POST['question']);
+			$answer = PDO::prepare($conn, $_POST['answer']);
+
+			//$sql = "INSERT INTO faq(question,answer) VALUES('$question','$answer')";
+			$q= $conn->prepare("INSERT INTO faq(question,answer) VALUES('$question','$answer')");
+			//$q->execute();
+			
+			// save to db and check
+			if($q->execute()){
+				// Succès : redirection FAQGestion
+				header('Location: FAQGestion.php');
+			} else {
+				echo 'query error: '. PDO::errorInfo($conn);
+			}
+		}
+	}
 ?>
 
 
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../FAQ/FAQ_Admin.css"/>
+</head>
+<body>
+	<div class="sidebar_header">
+	</div>
+	  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+	  <label for="openSidebarMenu" class="sidebarIconToggle">
+		<div class="spinner diagonal part-1"></div>
+		<div class="spinner horizontal"></div>
+		<div class="spinner diagonal part-2"></div>
+	  </label>
+	  <div id="sidebarMenu">
+		<div class="sidebarMenuInner">
+			<a class="bloc_sidebar_logo" href ="../Dashboard/dashboard.html">
+				<img src="LogoBeHealth-e.png" class ="logo_sidebar"></img>
+			</a>
+			<a class="bloc_sidebar" href="../Dashboard/dashboard.html"><i class="fa fa-fw fa-home"></i>Accueil</a>
+				<a class="bloc_sidebar" href="../Profil/profil.html"><i class="fa fa-fw fa-user"></i>Profil</a>
+				<a class="drop_click"><i class="fas fa-microchip"></i>Capteurs &#9662;</a>
+					<div class="capteurs_dropdown">
+						<a id="sous_bloc_sidebar" href="../Capteurs/cardiaque.html"><i class="fas fa-heartbeat"></i>Cardiaque</a>
+						<a id="sous_bloc_sidebar" href="../Capteurs/co2.html"><i class="fas fa-cloud"></i>CO2</a>
+						<a id="sous_bloc_sidebar" href="../Capteurs/particules.html"><i class="fas fa-atom"></i>Particules</a>
+						<a id="sous_bloc_sidebar" href="../Capteurs/temperature.html"><i class="fas fa-thermometer-half"></i>Température</a>
+					</div>
+				
+				<a class="bloc_sidebar" href=""><i class="far fa-chart-bar"></i>Statistiques</a>
+				<a class="bloc_sidebar" href="../FAQ/Faq.html"><i class="far fa-question-circle"></i>FAQ</a>
+				<a class="bloc_sidebar" href="../Contact/Contactez-Nous.php"><i class="far fa-comments"></i>Contact</a>
+				<a class="bloc_sidebar" target="blank" href="../Conditions-Générales.pdf"><i class="fas fa-clipboard-list"></i>Conditions</a>
+				<a class="bloc_sidebar" target="blank" href="../Conditions-Générales.pdf"><i class="fas fa-shield-alt"></i>Confidentialité</a>
+		</div>
+		<div class="sign_out">
+			<a href="../Accueil/Accueil.html">
+				<img width="50px" src="https://cdn-icons-png.flaticon.com/512/1828/1828304.png">
+			</a>
+		</div> 
+	  </div>
 
-
-<!-- css et fontawesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link rel="stylesheet" type="text/css" href="../FAQ/FAQ_Admin.css"/>
-
- 
-<!-- jquery -->
-<script src="js/jquery-3.3.1.min.js"></script>
 
 <div class="flex-default-container">
     <div class="screen">
@@ -55,7 +100,7 @@
  
                 <!-- question -->
                 <div class="flex-container">
-                    <label class="labels">Enter Question</label>
+                    <label class="labels">Enter question</label>
                     <input type="text" name="question" class="form-control" required />
                 </div>
  
@@ -72,50 +117,6 @@
             </form>
     </div>
     </div>
+    </body>
+</html>
 
-
-
-
-<!-- montre toutes les faqs ajoutées -->
-<div>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Question</th>
-                <th>Answer</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <?php foreach ($faqs as $faq): ?>
-                <tr>
-                    <td><?php echo $faq["id"]; ?></td>
-                    <td><?php echo $faq["question"]; ?></td>
-                    <td><?php echo $faq["answer"]; ?></td>
-                    <td>
-                        <!-- edit button -->
-                        <a href="edit.php?id=<?php echo $faq['id']; ?>"
-                        class="far fa-edit">
-                            Edit
-                        </a>
-
-                        <!-- form de delete -->
-                        <form method="POST" action="delete.php" onsubmit="return confirm('Êtes-vous sûr(e) de vouloir effacer cette FAQ ?');">
-                            <input type="hidden" name="id" value="<?php
-                                echo $faq['id']; ?>" required/>
-                            <input type="submit" value="Delete" class="fas fa-trash" />
-                        </form>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-</div>
