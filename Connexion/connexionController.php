@@ -2,7 +2,8 @@
 
 require '../Modele.php';
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit'])) 
+{
 
     $fields = [
         $_POST['username'],
@@ -17,7 +18,7 @@ if (isset($_POST['submit'])) {
         
         $db = DBConnect();
 
-        $sql = 'SELECT id_user, email, mdp FROM user WHERE email=:username';
+        $sql = 'SELECT * FROM user WHERE email=:username';
         $req = $db->prepare($sql);
         $req->execute([
             'username' => $username,
@@ -31,8 +32,16 @@ if (isset($_POST['submit'])) {
             $_SESSION['username'] = $username;
             $_SESSION['password'] = $password;
             $_SESSION['id_user'] = $elements[0]['id_user'];
+            $_SESSION['prenom'] = $elements[0]['prenom'];
+            $_SESSION['nom'] = $elements[0]['nom'];
+            $_SESSION['adresse'] = $elements[0]['adresse'];
+            $_SESSION['gender'] = $elements[0]['gender'];
+            $_SESSION['pays'] = $elements[0]['pays'];
+            $_SESSION['postalCode'] = $elements[0]['postalCode'];
+            $_SESSION['ville'] = $elements[0]['ville'];
+            $_SESSION['remarque'] = $elements[0]['remarque'];
 
-            echo 'Success';
+            header('Location: ../Dashboard/dashboard.php');
         }
         else
         {
