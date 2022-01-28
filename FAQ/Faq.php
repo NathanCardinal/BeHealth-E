@@ -44,7 +44,7 @@
 			<div class="not_ur_ques">
 				<p> Vous ne trouvez pas la réponse à votre question ?</p>
 				<div class="contact-button">
-					<a href="../Contact/Contactez-Nous.html" rel="stylesheet">Contactez-nous</a>   
+					<a href="../Contact/contact.php" rel="stylesheet">Contactez-nous</a>   
 				</div>
 			</div>
 		</div>

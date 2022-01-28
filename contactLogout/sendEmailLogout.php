@@ -36,7 +36,7 @@ if(isset($_POST['name']) && isset($_POST['email'])){
     $mail->Body = ("De : $name $surname <br>    $email<br><br>Objet : $subject<br><br>Message :<br>$body");
     $envoyer= $mail->send(); 
 
-    header('Location: Contact-Us_non_connecte.html');
+    header('Location: ../contactLogout/contactLogout.php');
     
 
     if ($envoyer == true) {
